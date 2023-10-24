@@ -1,22 +1,22 @@
 //DeCLARATIVE
 
-pipeline{
-	//agent any 
-	agent { docker {image 'maven:3.6.3'}}
-	stages{
-		steps{
-				sh 'mvn --version'
-				echo "Build"
+pipeline {
+	agent any 
+	stages {
+			stage('Build') { 
+			steps { 
+			echo "Build"
 			}	
+			}
 		
-		}
 		stage('Test'){
-			steps{
+			steps {
 				echo "Test"
 			}
 		}
+
 		stage('Integration Test'){
-			steps{
+			steps {
 				echo "Integration Test"
 					}
 }
@@ -31,6 +31,12 @@ pipeline{
 		failure {
 			echo "Irun when you are fail"
 		}
-	}
-}			
+		}
+}
+
+	
+	
+
+
+
 
